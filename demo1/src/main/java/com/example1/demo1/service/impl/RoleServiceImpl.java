@@ -14,12 +14,13 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public Role findByName(String name) {
         // TODO Auto-generated method stub
-        return roleDao.findRoleByName(name);
+        return roleDao.findByName(name);
     }
 
     @Override
     public Role save(Role role) {
         // TODO Auto-generated method stub
+
         return roleDao.save(role);
     }
     

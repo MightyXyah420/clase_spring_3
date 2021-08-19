@@ -1,6 +1,6 @@
 package com.example1.demo1.model;
 
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -28,7 +27,7 @@ public class User {
     private String name; // informacion extra 
     @Column
     private String color; // informacion extra 
-    //----------------------- PARA EL ROL -----------//
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "USER_ROLES",
         joinColumns = {
@@ -39,13 +38,9 @@ public class User {
         }
     )
     private Set<Role> roles;
-    //----------------------- PARA LAS NOTAS -----------//
-    @OneToMany(mappedBy = "user")
-    private List <Nota> notas;
     /**
      * @return the username
      */
-    //----------------------- Getters/Setters -----------//
     public String getUsername() {
         return username;
     }
@@ -90,6 +85,14 @@ public class User {
      */
     public void setColor(String color) {
         this.color = color;
+    }
+    public void addRole(Role role){
+        if(this.roles!=null){
+            this.roles.add(role);
+        }else{
+            this.roles = new HashSet<>();
+            this.roles.add(role);
+        }
     }
     
 }

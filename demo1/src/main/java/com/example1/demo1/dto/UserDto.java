@@ -63,4 +63,11 @@ public class UserDto {
         user.setPassword(this.password);
         return user;
     }
+    public UserDto (String color, String name, String username, String password){
+        super();
+        this.color=color;
+        this.name=name;
+        this.password=password;
+        this.username=username;
+    }
 }
