@@ -47,6 +47,6 @@ public class Demo1Application {
 			userService.save(usr2);
 			userService.save(usr3);
 			userService.save(usr4);
-		};
+		}; 
 	}
 }

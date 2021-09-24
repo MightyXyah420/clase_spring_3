@@ -2,6 +2,7 @@ package com.example1.demo1.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -36,6 +37,7 @@ public class UserController {
     public List<User> listUsers(){
         return userService.findAll();
     }
+
     @GetMapping("/byInitial/{letra}")
     public List <User> porInicial( @PathVariable(value="letra") String letra ){
         return userService.findByInitial(letra);
